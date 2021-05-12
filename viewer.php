@@ -16,12 +16,13 @@ $fileExtension = strtolower(pathInfo($pathFile, PATHINFO_EXTENSION));
 switch($fileExtension) {
 	case "pdf":
 		// Header Config for PDF Files
-		header("Content-type: application/pdf");
-		header("Content-Disposition: inline; filename=$pathFile");
-		header("Content-Length: ".filesize($pathFile));
+		//header("Content-type: application/pdf");
+		//header("Content-Disposition: inline; filename=$pathFile");
+		//header("Content-Length: ".filesize($pathFile));
 
 		// Send File to Browser
-		readfile($pathFile);
+		//readfile($pathFile);
+		echo "<embed src='$pathFile' type='application/pdf' width='80%' height='600px' />";
 		break;
 	case "png":
 		header("Content-type: image/png");
@@ -30,6 +31,7 @@ switch($fileExtension) {
 
 		// Send Image to Browser
 		echo file_get_contents($pathFile);
+		// echo "<embed src='$pathFile' type='image/png' width='80%' height='600px' />";
 		break;
 
 	case "jpeg":
